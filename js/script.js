@@ -52,6 +52,41 @@ torre3.ondragover=(e)=>{
     allowDrop(e);
 }
 
+<<<<<<< HEAD
+=======
+sacarNumero.onclick=()=>{
+    let numero = numeros.shift()
+    if(numero.valor==1) 
+        if(confirm("Te ha salido un 1. ¿Quieres que valga 10?")) numero.valor=10
+    jugada.push(numero)
+    if(numeros.length==0) mezclarNumeros()
+    carta.src=`/images/baraja/${numero.imagen}`
+    let minicarta=carta.cloneNode()
+    minicarta.style.width="60px"
+    document.querySelector(".jugada").appendChild(minicarta)
+    comprobarJugada()
+    carta.src=`/images/baraja/${numero.imagen}`
+    //clonamos la carta pequeñita y la mostramos en la jugada:
+    let minicarta=carta.cloneNode()
+    minicarta.style.width="60px"
+    document.querySelector(".jugada").appendChild(minicarta)
+}
+ 
+function comprobarJugada(){
+    console.log(jugada)
+    let total=jugada.map(c=>c.valor).reduce((a,b)=>a+b)
+    resultado.innerHTML=total    
+    if(total==21)
+        resultado.innerHTML+="HAS GANADO"
+    else if(total>21)
+        resultado.innerHTML+="HAS PERDIDO"
+}
+
+
+
+
+
+>>>>>>> 24949a53abceba33f3fcfc284e48b7ce9af67220
 
 function allowDrop(ev) {
     ev.preventDefault();
