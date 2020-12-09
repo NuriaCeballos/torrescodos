@@ -1,15 +1,58 @@
-@font-face {
-    font-family: "parry-hotter-regular";
-    src: url("../fonts/parry-hotter-regular.ttf");
+
+
+body{
+    background-color: rgb(243, 206, 103);
+}
+
+header {
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    nav{
+        background-color: #000;
+        border-bottom:5px solid green
+    }    
+    a,a:hover{
+        color:green;
+        margin-left:10px;
+    }
+}
+
+main{
+    margin-top:80px;
+    .container{
+        background: #fff;
+        min-height: 800px;
+        .row{
+            background: rgb(152, 208, 230);
+            min-height: 16px;
+            div[class^='col-']{
+                min-height: 100px;
+                
+                padding:20px;
+                font-family: cursive;
+               
+                h1{text-align: center;
+                    font-size: 100px;
+                    font-family: fantasy;
+                }
+                input{
+                    text-align: center;
+                    border-radius: 30px;
+                }
+            }
+           
+        }
+    }
+}
+
+.cabecera{
+    background-image: url("/images/torres.png");
+    height: 250px;
 }
 
 
-.header {
-    font-family: "parry-hotter-regular";
-    text-align:center;
-    max-width: 1080px;
-    margin:50px;
-}
 
 .resultado{
     width:300px;
