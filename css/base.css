@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "parry-hotter-regular";
+  src: url("../fonts/parry-hotter-regular.ttf");
+}
+
+.header {
+  font-family: "parry-hotter-regular";
+  text-align: center;
+  max-width: 1080px;
+  margin: 50px;
+}
+
+.resultado {
+  width: 300px;
+}
+
+.nube {
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  margin: 10px;
+}
+
+.torre1, .torre2, .torre3 {
+  width: 100px;
+  height: 200px;
+  border: 1px dashed #333;
+  text-align: center;
+  padding: 10px;
+  cursor: crosshair;
+}
+
+.disco {
+  background: red;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 20px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=base.css.map */
