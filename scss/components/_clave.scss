@@ -1,35 +1,104 @@
-.header {
-    font-family: "parry-hotter-regular";
+
+header {
     text-align:center;
-    max-width: 1080px;
-    margin:50px;
+    min-height: 200px;
+    margin-bottom: 10px;
+    background-image: url("/images/header_hanoi.gif");
+}
+body{
+    background-image: url("/images/city.jpg");
+    background-size: cover;
+    main{ 
+        .container{
+            background-color: transparent;
+            min-height: inherit;
+            .row{
+                background-color: black;
+                border:2px solid red;
+                margin: auto;
+                padding: auto;
+                color: white;
+                font-weight: bold;
+                font-size: 2;
+
+                [class^='col-']{
+                    color:white;
+                    justify-content: center;
+                    text-align: center;
+                    align-items: center;
+                    padding-top: 10px;
+                    img{
+                        max-height: 60px;
+                    }
+                    .nube{
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
+            
+            .torre1,.torre2,.torre3{
+                width: 100px; 
+                text-align: center;
+                
+                background-image: url("/images/palo.png");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+
+                justify-content: center;
+                align-content: center;
+                
+                &:hover{
+                    filter: brightness(75%);  
+                }
+
+            }
+        }
+        .disco{
+            color: black;
+            border-width: 2px;
+            height: 30px;
+            border-radius: 20% / 20%;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+            border:3px solid white;
+            border-radius: 15%;
+            margin: auto;
+            
+            .no-click{
+                pointer-events: none;
+            }
+        }
+    }
 }
 
-.no-click{
-    pointer-events: none;
-}
+  /*Ventana emergente version marta*/
 
-.nube{
-    height: 25px;
-    width: 25px;
-    background-color:green;
-
-}
-
-.torre1,.torre2,.torre3{
-    width:100px;
-    height: 150px;
-    border: 1px dashed #333;
+  .ventana{
+    background:rgba(246, 247, 248, 0.89);
+    width: 50%;
+    color:black;
+   
+    font-size:18px;
     text-align: center;
-    padding:10px;
-    cursor:crosshair;
+    padding:33px;
+    min-height: 250; 
+    border-radius:22px;
+    position: absolute;
+    left:25%;
+    top:35%;
+    display: none;
+    
+    .cerrar{
+        position: absolute;
+        right: 3px;
+        top:1px;
+      }
+   
+    
+  }
 
-}
-
-.disco{
-    background: red;
-    border:1px solid #ccc;
-    width: 100%;
-    height: 20px;
-    margin: 0 auto;
-}
