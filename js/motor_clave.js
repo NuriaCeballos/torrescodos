@@ -4,7 +4,7 @@ let torre3 = document.querySelector(".torre3")
 
 let nube = document.querySelector(".nube");
 
-let dificultad = 87;
+let dificultad = 8;
 
 let puntuacion = document.querySelector(".puntuacion");
 let jugador = document.querySelector(".jugador");
