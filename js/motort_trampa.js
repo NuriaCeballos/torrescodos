@@ -36,7 +36,8 @@ if (nombre.value != "" && keycode == 13) {
     let partida = {
         fecha: new Date(),
         nombre: nombre.value,
-        puntuacion: 0
+        movimientos: 0,
+        dificultad:4
       }
     
     sessionStorage.setItem("truco", JSON.stringify(partida))
