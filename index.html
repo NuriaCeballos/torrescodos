@@ -12,41 +12,34 @@
 </head>
 
 <body>
-  <!-- CABECERA DEL EJERCICIO -->
-  <header class="header align-middle justify-content-center">
-    <nav class="navbar navbar-dark navbar-expand-sm">
-      <a class="navbar-brand" href="#">
-        <img src="./images/logocodo.png" width="40" height="40" class="d-inline-block align-top" alt="">
-        Truco
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link active" id="btnnuevo" href="#">Nuevo</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <div class="container justify-content-center">
+    <div class="row align-middle">
+      <nav class="navbar navbar-dark navbar-expand-sm">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Nueva partida</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Puntuación</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <header class="d-flex justify-content-center">
+      <h1>Bienvenides a esta mierda de juego</h1>
+    </header>
     <!-- CUERPO DEL EJERCICIO -->
     <main>
       <div class="container">
         <div class="row d-flex justify-content-end">
-          <div class="col-12 d-flex justify-content-center">
-            <h3><b>BIENVENIDOS A ESTA MIERDA DE JUEGO</b></h3>
-          </div>
-          <div class="col-12 d-flex justify-content-center">
-            <h4>Hagan juego</h4>
-          </div>
-          <div class="col-6 d-flex justify-content-start carta"><img id="izquierda" src="./images/trasera.png" 
+          <div class="col-6 d-flex justify-content-start carta"><img id="izquierda" src="./images/trasera.png"
               height="400"></div>
-          
-          <div class="col-6 d-flex justify-content-end carta"><img id="derecha" src="./images/trasera.png" 
-              height="400"></div>
-          <div class="col-12 d-flex justify-content-center"><button id="btnModal" disabled>Botón del miedo</button>
+
+          <div class="col-6 d-flex justify-content-end carta"><img id="derecha" src="./images/trasera.png" height="400">
+          </div>
+          <div class="col-12 d-flex justify-content-center"><button class="btn-danger" id="btnModal"disabled>Botón del miedo</button>
           </div>
         </div>
       </div>
@@ -54,8 +47,8 @@
       <!--ventana modal-->
 
       <div id="tvesModal" class="modalContainer">
-        <div class="modal-content">
-          <h2>EXIT</h2>
+        <div class="modal-content text-center">
+          <h2 class="mb-4">EXIT</h2>
           <p>La has cagado nene, este juego se autodestruirá si no me dices tu nombre!</p>
           <input type="text" id="nombre"></input>
         </div>

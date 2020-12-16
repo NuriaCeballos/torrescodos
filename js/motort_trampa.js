@@ -6,12 +6,12 @@ let nombre = document.querySelector("#nombre")
 
 izquierda.onclick = () => {
     izquierda.removeAttribute("src", "./images/trasera.svg")
-    izquierda.setAttribute("src", "./images/corazones_1.svg")
+    izquierda.setAttribute("src", "./images/delantera.png")
 
 }
 derecha.onclick = () => {
     derecha.removeAttribute("src", "./images/trasera.svg")
-    derecha.setAttribute("src", "./images/corazones_1.svg")
+    derecha.setAttribute("src", "./images/delantera.png")
     Desactivar()
 }
 
