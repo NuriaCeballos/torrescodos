@@ -8,9 +8,10 @@ let dificultad = 4;
 let alto = 30;
 let espacio = ((dificultad + 1) * alto);
 
-let jugador_puntuacion = JSON.parse(sessionStorage.getItem("truco")).puntuacion;
-document.querySelector(".puntuacion").innerHTML = jugador_puntuacion;
-document.querySelector(".jugador").innerHTML = JSON.parse(sessionStorage.getItem("truco")).nombre;
+let jugador = JSON.parse(sessionStorage.getItem("partida"));
+document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
+document.querySelector(".jugador").innerHTML = jugador.nombre;
+
 
 function crearTorres() {
     let ancho = 25;
@@ -19,7 +20,7 @@ function crearTorres() {
         let disco = document.createElement("div")
         disco.classList.add("disco");
         disco.classList.add("no-click");
-        disco.innerHTML = i;
+
         disco.value = i;
         disco.style.width = ancho + "%";
         ancho = ancho + 15;
@@ -61,19 +62,24 @@ document.querySelector(".hanoi").onclick = (e) => {
             e.target.insertAdjacentElement("afterbegin", nube.firstChild);
             e.target.value = e.target.firstChild.value;
             e.target.style.paddingTop = espacio - (e.target.children.length) * alto + "px";
-            ++jugador_puntuacion;
-            document.querySelector(".puntuacion").innerHTML = jugador_puntuacion;
+            ++jugador.movimientos;
+            document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
             hasGanado();
         } else {
+            document.querySelector("audio").play()
             alert("El tamaño SÍ importa..")
         }
     }
 }
 
 //comprueba la victoria
+let n = 0;
 function hasGanado() {
     if (torre3.children.length == dificultad) {
-        alert("Has ganado!");
+        alert("¡Enhorabuena por haber llegado hasta aquí, " + jugador.nombre + "! Has completado la partida en " + jugador.movimientos + " movimientos, buen trabajo!");
+        sessionStorage.setItem("partida" + n, JSON.stringify(jugador));
+        n = n + 1;
+        location="puntuacion.html"
     }
 }
 
@@ -114,10 +120,12 @@ function cambiarDificultad() {
                 dificultad = parseInt(btn_diff[i].value);
             }
         }
-        jugador_puntuacion=0;
-        document.querySelector(".puntuacion").innerHTML = jugador_puntuacion;
+        jugador.movimientos = 0;
+        jugador.dificultad = dificultad;
+        document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
         robertOppenheimer();
         crearTorres();
+        controlVentana();
     }
 }
 
@@ -139,6 +147,9 @@ function controlVentana() {
 }
 
 
-/* function mariaJose (){
-    funcion destinada a la humiliasion
-} */
+/* function desmoralizarTropa (){
+    let desmo=document.getElementsByName("mal");
+    desmo.forEach((audio)=>{
+
+    })
+}  */
