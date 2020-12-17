@@ -58,16 +58,18 @@ document.querySelector(".hanoi").onclick = (e) => {
             }
         }
     } else {
-        if (nube.firstChild.value < e.target.value) {
-            e.target.insertAdjacentElement("afterbegin", nube.firstChild);
-            e.target.value = e.target.firstChild.value;
-            e.target.style.paddingTop = espacio - (e.target.children.length) * alto + "px";
-            ++jugador.movimientos;
-            document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
-            hasGanado();
-        } else {
-            document.querySelector("audio").play()
-            alert("El tamaño SÍ importa..")
+        if ((e.target == torre1 || e.target == torre2 || e.target == torre3)) {
+            if (nube.firstChild.value < e.target.value) {
+                e.target.insertAdjacentElement("afterbegin", nube.firstChild);
+                e.target.value = e.target.firstChild.value;
+                e.target.style.paddingTop = espacio - (e.target.children.length) * alto + "px";
+                ++jugador.movimientos;
+                document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
+                hasGanado();
+            } else {
+                document.querySelector("audio").play()
+                alert("El tamaño SÍ importa..")
+            }    
         }
     }
 }
