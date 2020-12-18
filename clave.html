@@ -28,10 +28,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Nueva partida</a>
+                <a class="nav-link btn_new" href="javascript:">Cambiar Jugador</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Puntuación</a>                
+                <a class="nav-link" href="puntuacion.html">High Scores</a>
               </li>
             </ul>
           </div>
@@ -43,7 +43,7 @@
         <div class="col-4"><a href="http://fullstack2021.online/fullstack/codos/" class="logo mr-auto"><img
               src="/images/logocodo.png" alt="" class="img-fluid"></a></div>
         <div class="col-4 nube"></div>
-        <div class="col-4"><a href="javascript:controlVentana()" class="btn btn-warning">¿Demasiado fácil?</a></div>
+        <div class="col-4"><a class="btn btn-warning btn_diff">¿Demasiado fácil?</a></div>
       </div>
 
       <!--Row con las torres-->
@@ -75,6 +75,7 @@
               <li>Cada movimiento consiste en tomar el disco superior de una de las pilas y colocarlo encima de otra
                 pila o sobre una barra vacía.</li>
               <li>No se puede colocar un disco más grande sobre un disco más pequeño.</li>
+              ¡Diviértete!
             </ul>
           </div>
         </div>
@@ -82,8 +83,45 @@
     </div>
   </main>
 
+  <!-- Ventana emergente version marta-->
+  <div class="modal_diff">
+    <div class="cerrar"><a class="btn_diff"><img class="btn_diff" src="images/cerrar.png" width="30" height="30"></a>
+    </div>
+    <form class="form-check form-check-inline">Elige tu dificultad:
+      <input class="form-check-input" type="radio" name="dificultad" value=4 checked>
+      <label class="form-check-label">
+        Fácil
+      </label>
+      <input class="form-check-input" type="radio" name="dificultad" value=5>
+      <label class="form-check-label">
+        Normal
+      </label>
+      <input class="form-check-input" type="radio" name="dificultad" value=6>
+      <label class="form-check-label">
+        Difícil
+      </label>
+    </form>
+    <button type="button" class="btn btn-primary" onclick="cambiarDificultad()">Cambiar</button>
+  </div>
+
+  <!-- Ventana emergente new player-->
+  <div class="modal_new" style="background-color: brown;">
+    <div class="cerrar"><a class="btn_new"><img class="btn_new" src="images/cerrar.png" width="30" height="30"></a>
+    </div>
+    <form class="form-text-input">Introduzca el nombre del nuevo jugador
+      <input class="text" type="text" placeholder="Nombre" id="nuevo_nombre">
+    </form>
+    <button type="button" class="btn btn-primary" onclick="cambiarJugador()">Vamos allá!</button>
+  </div>
+
+
   <!--Audios-->
   <audio name="mal" src="audios/bruh.m4a"></audio>
+  <audio name="mal" src="audios/not_really_fine.m4a"></audio>
+  <audio name="mal" src="audios/oof.m4a"></audio>
+  <audio name="bien" src="audios/smash_incredible.m4a"></audio>
+  <audio name="bien" src="audios/baby_triple.m4a"></audio>
+  <audio name="bien" src="audios/eyy_prettygood.m4a"></audio>
 
   <!--Script-->
   <!--Bootstrap-->
@@ -102,25 +140,6 @@
   <script src="js/motor_clave.js"></script>
 </body>
 
-<!-- Ventana emergente version marta-->
-<div class="ventana">
-  <div class="cerrar"><a href="javascript:controlVentana()"><img src="images/cerrar.png" width="30" height="30"></a>
-  </div>
-  <form class="form-check form-check-inline">Elige tu dificultad:
-    <input class="form-check-input" type="radio" name="dificultad" value=4 checked>
-    <label class="form-check-label">
-      Fácil
-    </label>
-    <input class="form-check-input" type="radio" name="dificultad" value=5>
-    <label class="form-check-label">
-      Normal
-    </label>
-    <input class="form-check-input" type="radio" name="dificultad" value=6>
-    <label class="form-check-label">
-      Difícil
-    </label>
-  </form>
-  <button type="button" class="btn btn-primary cambiar" onclick="cambiarDificultad()">Cambiar</button>
-</div>
+
 
 </html>
