@@ -1,0 +1,27 @@
+body#pagina_puntuacion {
+    background-color: white;
+    font-family: "yozakura";
+    color: grey;
+    background-image: url("/images/hanoi_city.gif");
+    background-size: cover;
+    background-repeat: space;
+
+    main {
+        margin-bottom: 50px;
+
+        .row {
+            color: green;
+        }
+
+        .jugador {
+            display: none;
+            border: solid red 2px;
+
+            .col-4 {
+                align-items: center;
+                height: 5px;
+            }
+        }
+    }
+
+}
