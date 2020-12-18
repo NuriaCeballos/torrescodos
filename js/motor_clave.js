@@ -8,11 +8,11 @@ let dificultad = 4;
 let alto = 30;
 let espacio = ((dificultad + 1) * alto);
 
-let jugador = JSON.parse(sessionStorage.getItem("partida"));
+let jugador = JSON.parse(localStorage.getItem(0));
 document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
 document.querySelector(".jugador").innerHTML = jugador.nombre;
 
-
+//creamos las torres
 function crearTorres() {
     let ancho = 25;
 
@@ -40,7 +40,7 @@ function crearTorres() {
 
 crearTorres();
 
-//el juego en un click
+//el juego 
 document.querySelector(".hanoi").onclick = (e) => {
     if (nube.firstChild == null) {
         if (e.target == torre1 || e.target == torre2 || e.target == torre3) {
@@ -69,19 +69,17 @@ document.querySelector(".hanoi").onclick = (e) => {
             } else {
                 document.querySelector("audio").play()
                 alert("El tamaño SÍ importa..")
-            }    
+            }
         }
     }
 }
 
 //comprueba la victoria
-let n = 0;
 function hasGanado() {
     if (torre3.children.length == dificultad) {
         alert("¡Enhorabuena por haber llegado hasta aquí, " + jugador.nombre + "! Has completado la partida en " + jugador.movimientos + " movimientos, buen trabajo!");
-        sessionStorage.setItem("partida" + n, JSON.stringify(jugador));
-        n = n + 1;
-        location="puntuacion.html"
+        localStorage.setItem(localStorage.length, JSON.stringify(jugador));
+        location = "puntuacion.html"
     }
 }
 
@@ -100,6 +98,7 @@ function codos() {
     hasGanado();
 }
 
+
 //funcion randomcolorz
 function colorinesHanoi() {
     var colorDisco = document.querySelectorAll(".disco");
@@ -112,7 +111,7 @@ function colorinesHanoi() {
     });
 }
 
-//cambio la dificultad
+//cambio la DIFICULTAD
 function cambiarDificultad() {
     let respuesta = confirm("Cambiar de dificultad reiniciará su partida, ¿desea continuar?");
     if (respuesta != false) {
@@ -127,7 +126,26 @@ function cambiarDificultad() {
         document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
         robertOppenheimer();
         crearTorres();
-        controlVentana();
+        document.querySelector(".modal_diff").style.display = "none"
+    }
+}
+
+//cambio al JUGADOR
+function cambiarJugador() {
+    let respuesta = confirm("Al cambiar de Jugador, perderá el progreso. ¿Desea continuar?");
+    if (respuesta != false) {
+        localStorage.setItem(0, JSON.stringify(jugador));
+
+        jugador.nombre = document.getElementById("nuevo_nombre").value;
+        jugador.movimientos = 0;
+        jugador.dificultad = 4;
+
+        document.querySelector(".jugador").innerHTML = jugador.nombre
+        document.querySelector(".puntuacion").innerHTML = jugador.movimientos;
+
+        robertOppenheimer();
+        crearTorres();
+        document.querySelector(".modal_new").style.display = "none"
     }
 }
 
@@ -139,14 +157,29 @@ function robertOppenheimer() {
     });
 }
 
-/*Ventana emergente version marta (reworked)*/
-function controlVentana() {
-    if (document.querySelector(".ventana").style.display == "none") {
-        document.querySelector(".ventana").style.display = "block";
-    } else {
-        document.querySelector(".ventana").style.display = "none"
+/*Ventana emergente DIFICULTAD*/
+document.querySelectorAll(".btn_diff").forEach((btn) => {
+    btn.onclick = () => {
+        if (document.querySelector(".modal_diff").style.display == "none") {
+            document.querySelector(".modal_diff").style.display = "block";
+        } else {
+            document.querySelector(".modal_diff").style.display = "none"
+        }
     }
-}
+})
+
+/*Ventana emergente NUEVO JUGADOR*/
+document.querySelectorAll(".btn_new").forEach((btn) => {
+    btn.onclick = () => {
+        if (document.querySelector(".modal_new").style.display == "none") {
+            document.querySelector(".modal_new").style.display = "block";
+        } else {
+            document.querySelector(".modal_new").style.display = "none"
+        }
+    }
+})
+
+
 
 
 /* function desmoralizarTropa (){
